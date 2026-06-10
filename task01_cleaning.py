@@ -12,7 +12,7 @@ print(df.columns)
 print(df.isna().sum())
 
 # TODO 2: 重複している行を削除してください
-df = df.drop_duplicates(keep="last").sort_values(by=["注文ID"])
+df = df.drop_duplicates(keep="last")
 
 # TODO 3: 店舗、カテゴリなどの前後の空白を削除してください
 df["店舗"] = df["店舗"].str.strip()
@@ -49,7 +49,7 @@ df["商品名"] = df["商品名"].fillna("不明")
 df["支払方法"] = df["支払方法"].fillna("不明")
 
 # TODO 10: 日付を datetime 型に変換し、日付が変換できなかった行を削除してください。
-df["日付"] = pd.to_datetime(df["日付"],errors="coerce")
+df["日付"] = pd.to_datetime(df["日付"],errors="coerce", format="mixed")
 df = df.dropna(subset=["日付"])
 
 # TODO 11: 売上金額という新しい列を作ってください
