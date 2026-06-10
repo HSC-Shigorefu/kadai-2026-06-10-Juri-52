@@ -9,7 +9,7 @@ df = pd.read_csv("sales_clean.csv")
 sales = df.groupby("店舗")["売上金額"].sum()
 
 # TODO 2: 売上が多い順に並べ替えてください
-sales = sales.sort_values(ascending=False)
+sales = sales.sort_values(ascending=True)
 
 # TODO 3: 横棒グラフを作ってください
 plt.figure(figsize=(10,5))
