@@ -6,6 +6,7 @@ import setuptools
 df = pd.read_csv("sales_clean.csv")
 
 # TODO 1: カテゴリごとの売上金額を合計してください
+sales = df.groupby("カテゴリ")["売上金額"].sum().sort_values(ascending=False)
 
 # TODO 2: 売上が多い順に並べ替え、 棒グラフを作ってください
 # ヒント:
@@ -13,5 +14,12 @@ df = pd.read_csv("sales_clean.csv")
 # ascending=False にすると、大きい順になります。
 # 例:
 # data = data.sort_values(ascending=False)
+plt.figure(figsize=(15,5))
+plt.title("カテゴリ別売上")
+plt.bar(sales.index,sales.values)
+plt.xlabel("カテゴリ")
+plt.ylabel("売上")
+plt.ticklabel_format(style="plain",axis="y")
 
 # TODO 3: 棒グラフを作ってください
+plt.show()
