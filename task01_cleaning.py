@@ -73,4 +73,5 @@ print(df.head(5))
 # TODO 15: 欠損値の数をもう一度表示してください
 print(df.isna().sum())
 
+print(df)
 df.to_csv("sales_clean.csv",index=False)
